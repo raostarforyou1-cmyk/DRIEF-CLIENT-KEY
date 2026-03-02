@@ -17,7 +17,6 @@ font-family:'Montserrat', sans-serif;
 overflow-x:hidden;
 }
 
-/* Purple Neon Background */
 body::before{
 content:"";
 position:fixed;
@@ -113,20 +112,12 @@ box-shadow:0 0 25px rgba(155,61,255,0.9);
 
 #downloadBtn{
 display:none;
-margin-top:25px;
-text-decoration:none;
 }
 
 .stats{
 padding:60px 20px;
 background:#0f1322;
 text-align:center;
-}
-
-.stats h2{
-font-family:'Orbitron', sans-serif;
-color:#c86bff;
-margin-bottom:40px;
 }
 
 .stat-grid{
@@ -182,7 +173,7 @@ font-size:13px;
 
 <input 
 type="text" 
-id="userKey" 
+id="userKey"
 placeholder="Enter Access Key"
 maxlength="20"
 oninput="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'')"
@@ -192,11 +183,9 @@ oninput="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'')"
 
 <button onclick="verifyKey()">VERIFY & CONTINUE</button>
 
-<a href="https://www.mediafire.com/file/3ozvulro9g384m8/DRIPE_CLINET_BY_BALA_X_MODS_.zip/file"
-   id="downloadBtn"
-   onclick="handleDownload()">
-<button>DOWNLOAD CLIENT</button>
-</a>
+<button id="downloadBtn" onclick="startDownload()">
+DOWNLOAD CLIENT
+</button>
 
 </section>
 
@@ -204,27 +193,10 @@ oninput="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'')"
 <h2>Community & Activity</h2>
 
 <div class="stat-grid">
-
-<div class="stat">
-<h3>125K+</h3>
-<p>Registered Players</p>
-</div>
-
-<div class="stat">
-<h3>4.8 ★</h3>
-<p>Community Rating</p>
-</div>
-
-<div class="stat">
-<h3>99.2%</h3>
-<p>Server Stability</p>
-</div>
-
-<div class="stat">
-<h3>24/7</h3>
-<p>Support Access</p>
-</div>
-
+<div class="stat"><h3>125K+</h3><p>Registered Players</p></div>
+<div class="stat"><h3>4.8 ★</h3><p>Community Rating</p></div>
+<div class="stat"><h3>99.2%</h3><p>Server Stability</p></div>
+<div class="stat"><h3>24/7</h3><p>Support Access</p></div>
 </div>
 </section>
 
@@ -234,27 +206,21 @@ oninput="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'')"
 
 <script>
 
-/* Redirect if already downloaded */
-if(localStorage.getItem("downloaded") === "true"){
-window.location.href = "https://www.google.com";
-}
-
 function verifyKey(){
 let key = document.getElementById("userKey").value.trim();
 
 if(key.length >= 10 && key.length <= 20){
 document.getElementById("downloadBtn").style.display = "inline-block";
 }else{
-alert("Key must be 10 to 20 characters (letters & numbers only) ❌");
+alert("Key must be 10–20 characters (letters & numbers only)");
 }
 }
 
-function handleDownload(){
-localStorage.setItem("downloaded","true");
-
-setTimeout(function(){
-window.location.href = "html.raostar";
-},1000);
+function startDownload(){
+window.open(
+"https://www.mediafire.com/file/3ozvulro9g384m8/DRIPE_CLINET_BY_BALA_X_MODS_.zip/file",
+"_blank"
+);
 }
 
 </script>
